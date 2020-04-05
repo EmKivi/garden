@@ -1,0 +1,21 @@
+.diary {
+    background-color: #1b575f;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.diary h4 {
+    color: rgba(255, 167, 5, 0.7);
+}
+
+.diary hr{
+    opacity: 0.3;
+}
+
+.note{
+    padding: 2em;
+    background-color: #1b575f;
+}
