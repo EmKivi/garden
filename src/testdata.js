@@ -6,12 +6,12 @@ const testdata = {
     maapera: "savinen, kuiva",
     vyohyke: "IV",
     hankinnat: [
-        ["lapio", "kastelukannu", "lannoite"], ["niittykukan siemenet", "yrttien taimet","malvan taimet"]],
-    istuta: ["mansikat", "kirveli","perennat"],
+        ["lapio", "kastelukannu", "lannoite"], ["niittykukan siemenet", "yrttien taimet", "malvan taimet"]],
+    istuta: ["mansikat", "kirveli", "perennat"],
     diary: [
         {
             id: "1",
-            date: "01-05-2020",
+            date: "2020-04-02",
             note: "Satoi koko päivän. Olin sisällä koko päivän ja vain suunnittelin tulevia istutuksia."
         },
         {
@@ -34,10 +34,36 @@ const testdata = {
             note: "aurinkoinen päivä"
         },
 
+    ],
+    tasks: [
+        {
+            id: "1",
+            date: "2020-04-02",
+            note: "Suunnittele istutukset valmiiksi."
+        },
+        {
+            id: "2",
+            date: "2020-04-10",
+            note: "kylvä pussillisen niittykukkien siemeniä"
+        },
+        {
+            id: "3",
+            date: "2020-05-06",
+            note: "kastele kaikki"
+        },
+        {
+            id: "4",
+            date: "2020-05-21",
+            note: "lannoita"
+        },
+        {
+            id: "5", date: "2020-06-01",
+            note: "kitkeminen ja karsiminen"
+        }
     ]
-
-
 }
+
+
 
 
 

@@ -1,24 +1,14 @@
 .menu {
-    
+
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     background-color: #403c3b;
-color: white;
-max-height: 6em;
-min-height: 6em;
-}
-
-.menu button{
-height: 2em;
-padding: 0.2em;
-border-radius: 25%;
+    max-height: 6em;
+    min-height: 6em;
 }
 
 .menu img {
-background-color: rgb(55, 24, 24);
-height: 5em;
-width:5em;
-border-radius: 40%;
-border: 2px solid blue;
+    height: 5em;
+    width:5em;
 }

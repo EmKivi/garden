@@ -5,19 +5,11 @@ import testdata from '../../testdata.js';
 const Diary = () => {
     return (
         <div className="diary">
-
             <Notes />
-
-
-            {/* tähän komponentti joka luo muistiinpanon */}
         </div>
 
     );
 }
-
-
-
-
 
 
 const Notes = () => {

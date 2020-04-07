@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Menu.css';
-import G_logo from './garden.png';
-import D_logo from './diary.png';
-import S_logo from './saa.png';
-import T_logo from './tehtava.png';
+import G_logo from './img/garden.png';
+import D_logo from './img/diary.png';
+import S_logo from './img/saa.png';
+import T_logo from './img/tehtava.png';
 
 const Menu = () => {
     return (
