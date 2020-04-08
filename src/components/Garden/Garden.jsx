@@ -1,10 +1,9 @@
 import React from 'react';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import './Garden.css';
-import testdata from '../../testdata.js';
 import Listing from '../Listing/Listing';
 
-const Garden = () => {
+const Garden = (props) => {
     return (
         <div className="garden" >
             <div className="garden__add">
@@ -24,17 +23,17 @@ const Garden = () => {
 
                 <div className="garden__kasvit">
                     <h3>Yrtit</h3>
-                    <Listing props={testdata.yrtit} />
+                    <Listing props={props.data.yrtit} />
                 </div>
 
                 <div className="garden__kasvit">
                     <h3>Yksivuotiset</h3>
-                    <Listing props={testdata.yksivuotiset} />
+                    <Listing props={props.data.yksivuotiset} />
                 </div>
 
                 <div className="garden__kasvit">
                     <h3>Hyötykasvit</h3>
-                    <Listing props={testdata.hyotykasvit} />
+                    <Listing props={props.data.hyotykasvit} />
                 </div>
 
             </div>
@@ -42,19 +41,19 @@ const Garden = () => {
             <div className="garden__section">
                 <div className="garden__kasvit">
                     <h3>Vihannekset</h3>
-                    <Listing props={testdata.vihannekset} />
+                    <Listing props={props.data.vihannekset} />
                 </div>
 
 
                 <div className="garden__kasvit">
                     <h3>Sipulikasvit</h3>
 
-                    <Listing props={testdata.sipulikasvit} />
+                    <Listing props={props.data.sipulikasvit} />
                 </div>
 
                 <div className="garden__kasvit">
                     <h3>Marjapensaat</h3>
-                    <Listing props={testdata.marjapensaat} />
+                    <Listing props={props.data.marjapensaat} />
 
 
                 </div>
@@ -65,9 +64,7 @@ const Garden = () => {
     );
 }
 
-const Category = (head, props) => {
-    return ({ head });
-}
+
 
 
 
