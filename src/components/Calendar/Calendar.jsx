@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import './Calendar.css';
 import TaskFilter from '../TaskFilter/TaskFilter';
@@ -8,14 +9,11 @@ const Calendar = () => {
 
     return (
         <div className="calendar">
-            <h2>Toimet</h2>
-            <div>
-                <input type="date" />
-                <input type="text" />
-                <input type="submit" />
-                <AddCircleIcon />
-            </div>
-            <TaskFilter />
+            <div className="calendar__head"><h2>Toimet</h2> 
+            <Link to="/newtask">
+            <AddCircleIcon className="calendar__add" style={{ fontSize: 50 }} /></Link></div>
+            <TaskFilter  />
+           
         </div>
     );
 }

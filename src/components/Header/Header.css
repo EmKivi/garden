@@ -1,6 +1,6 @@
 .header {
-   color: #dad38f;
-   background-color:#21595d;
+
+   background-color:#c368cf;
    display: flex;
    justify-content: space-evenly;
     align-items: center;
@@ -18,7 +18,7 @@
 }
 
 .header h1{
-    color: rgba(218, 211, 143);
+    color:white;
     text-shadow: 2px 8px 6px rgba(0,0,0,0.2), 0px -5px 35px rgba(255,255,255,0.3);
 }
 

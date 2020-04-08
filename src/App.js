@@ -8,6 +8,7 @@ import Menu from './components/Menu/Menu';
 import Weather from './components/Weather/Weather';
 import Diary from './components/Diary/Diary';
 import Calendar from './components/Calendar/Calendar';
+import NewTask from './components/NewTask/NewTask';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" exact component={Garden} />
           <Route path="/weather" exact component={Weather} />
           <Route path="/chores" exact component={Calendar} />
+          <Route path="/newtask" exact component={NewTask} />
           <Route path="/diary" exact component={Diary} />
         </div>
         <Menu />

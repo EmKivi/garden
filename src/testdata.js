@@ -1,13 +1,18 @@
 const testdata = {
 
-    kasvit: ["mansikka", "vadelma", "luumu", "malva", "nokkonen", "basilika"],
-    rikkakasvit: ["pujo", "voikukka", "lupiini"],
-    tuholaiset: ["rotat", "ripsiäiset", "etanat"],
-    maapera: "savinen, kuiva",
-    vyohyke: "IV",
-    hankinnat: [
-        ["lapio", "kastelukannu", "lannoite"], ["niittykukan siemenet", "yrttien taimet", "malvan taimet"]],
-    istuta: ["mansikat", "kirveli", "perennat"],
+    yrtit: ["basilika", "lipstikka", "kirveli", "tinjami", "rosmariini", "tilli", "persilja"],
+    yksivuotiset: ["unikko", "auringonkukka", "päivänsini"],
+    hyotykasvit: ["nokkonen"],
+    vihannekset: ["tomaatti", "salaatti", "kaali", "kurkku", "munakoiso"],
+    sipulikasvit: ["liljat", "narsissi", "tulppaani"],
+    marjapensaat: ["vadelma", "mustikka", "karviainen", "mustaherukka", "punaherukka"],
+
+
+    // rikkakasvit: ["pujo", "voikukka", "lupiini"],
+    // tuholaiset: ["rotat", "ripsiäiset", "etanat"],
+    // maapera: "savinen, kuiva",
+    // vyohyke: "IV",
+
     diary: [
         {
             id: "1",

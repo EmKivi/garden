@@ -1,19 +1,28 @@
 .garden {
   display: flex;
-  background-color:  olive;
+  background-color: #ccc;
+
   flex-direction: column;
-  
   color:#053241;
   min-height: 100%;
-}
-.garden ul{   
-  list-style: none;
+  background-image: url('./garden.png');
 }
 
+
+.garden ul{   
+  list-style: none;
+   padding: 0.2em;
+}
+
+.garden h3 {
+  padding: 0.2em;
+}
 
 .garden__section {
   display: flex;
   flex-direction: row;
+  padding: 0.2em;
+
 }
 
 .garden__kasvit{
@@ -22,10 +31,42 @@
   flex-grow: 1;
   flex-direction: column;
   width: 30%;
-  margin-left: 1em;
-  background-color: rgb(86, 114, 31);
+margin: 0.1em;
+  background-color: rgba(86, 114, 31, 0.8);
   border-radius: 5%;
   color: white;
   border: 2px solid rgba(0,0,0,0.2);
   padding: 0.5em;
+  
+}
+
+.garden__add{
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0.5em;
+}
+
+.garden__icon {
+  
+  align-self: flex-end;
+  color: rgb(56, 223, 56);
+  margin-top: 0.1em;
+
+}
+
+
+.garden__icon:active{
+  transform:scale(0.8);
+}
+
+.garden__input {
+  font-size: 20px;
+  margin: 0.3em;
+  
+}
+
+
+.garden select{
+  font-size: 20px;
+  margin: 0.3em;
 }

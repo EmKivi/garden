@@ -13,6 +13,7 @@ const Menu = () => {
             <Link to="/weather"> <img src={S_logo} alt="logo" /></Link>
             <Link to="/chores"><img src={T_logo} alt="logo" /></Link>
             <Link to="/diary"><img src={D_logo} alt="logo" /></Link>
+            
         </div>
     );
 }

@@ -29,7 +29,6 @@ const TaskFilter = () => {
             <hr />
             <h3>Myöhässä</h3>
             <TaskCreator props={late} />
-
             <hr />
             <h3>Tänään</h3>
             <TaskCreator props={today} />
@@ -48,7 +47,7 @@ const TaskCreator = ({ props }) => {
                 <li>
                     {task.date}<br />
                     {task.note}
-                    <input type="checkbox"/>
+                    {/* <input type="checkbox"/> */}
                 </li>
             )
         });

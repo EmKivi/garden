@@ -1,5 +1,7 @@
 .diary {
-    background-color: #1b575f;
+    color: white;
+    background-color: #297448;
+
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -17,5 +19,6 @@
 
 .note{
     padding: 2em;
-    background-color: #1b575f;
+    background-color: #328a57;
+
 }
