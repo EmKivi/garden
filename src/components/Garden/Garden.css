@@ -1,11 +1,10 @@
 .garden {
   display: flex;
-  background-color: #ccc;
-
+  background-color: #053241;
   flex-direction: column;
-  color:#053241;
+  color:#053747;
   min-height: 100%;
-  background-image: url('./garden.png');
+  /* background-image: url('./garden.png'); */
 }
 
 
@@ -32,12 +31,14 @@
   flex-direction: column;
   width: 30%;
   margin: 0.1em;
-  background-color: rgba(86, 114, 31, 0.8);
+  background-color: rgba(14, 95, 95, 0.8);
+  /* background-color: rgba(86, 114, 31, 0.8); */
   box-shadow:2px 2px 10px rgba(0,0,0,0.3);
   border-radius: 5%;
   color: white;
   /* border: 2px solid rgba(0,0,0,0.2); */
   padding: 0.5em;
+  
   
 }
 
@@ -47,27 +48,5 @@
   margin: 0.5em;
 }
 
-.garden__icon {
-  
-  align-self: flex-end;
-  color: rgb(56, 223, 56);
-  margin-top: 0.1em;
-
-}
 
 
-.garden__icon:active{
-  transform:scale(0.8);
-}
-
-.garden__input {
-  font-size: 20px;
-  margin: 0.3em;
-  
-}
-
-
-.garden select{
-  font-size: 20px;
-  margin: 0.3em;
-}

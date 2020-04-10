@@ -1,0 +1,52 @@
+.newplant{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0.5em;
+
+  }
+
+
+  .newplant__icon {
+    display: flex;
+      background-color: rgb(83, 220, 230);
+      margin-top: 0.1em;
+      border: none;
+      border-radius: 40%;
+      font-size: 1.5em;
+      margin-top: 0.2em;
+      height: 30px;
+      width: 30px;
+      text-align: center;
+      justify-content: center;;
+    } 
+
+
+
+  /* for Material UI button */
+  /* .newplant__icon {
+  display: flex;
+    color: rgb(83, 220, 230);
+    margin-top: 0.1em;
+  }   */
+
+
+  .newplant form {
+      display: flex;
+  }
+
+.newplant__icon:active{
+    transform:scale(0.8);
+  }
+  
+  .newplant__input {
+    font-size: 20px;
+    margin: 0.3em;
+    
+  }
+  
+  
+  .garden select{
+    font-size: 20px;
+    margin: 0.3em;
+  }

@@ -1,17 +1,41 @@
 const testdata = {
 
-    yrtit: ["basilika", "lipstikka", "kirveli", "tinjami", "rosmariini", "tilli", "persilja"],
-    yksivuotiset: ["unikko", "auringonkukka", "päivänsini"],
-    hyotykasvit: ["nokkonen"],
-    vihannekset: ["tomaatti", "salaatti", "kaali", "kurkku", "munakoiso"],
-    sipulikasvit: ["liljat", "narsissi", "tulppaani"],
-    marjapensaat: ["vadelma", "mustikka", "karviainen", "mustaherukka", "punaherukka"],
+    kasvit: [
+
+        {
+            id: "1",
+            tyyppi: "Yrtit",
+            lista: ["basilika", "lipstikka", "kirveli", "tinjami", "rosmariini", "tilli", "persilja"]
+        },
+        {
+            id: "2",
+            tyyppi: "Yksivuotiset",
+            lista: ["unikko", "auringonkukka", "päivänsini"]
+        },
+        {
+            id: "3",
+            tyyppi: "Hyötykasvit",
+            lista: ["nokkonen"]
+        },
+        {
+            id: "4",
+            tyyppi: "Vihannekset",
+            lista: ["tomaatti", "salaatti", "kaali", "kurkku", "munakoiso"]
+        },
+        {
+            id: "5",
+            tyyppi: "Sipulikasvit",
+            lista: ["liljat", "narsissi", "tulppaani"]
+        },
+        {
+            id: "6",
+            tyyppi: "Marjapensaat",
+            lista: ["vadelma", "mustikka", "karviainen", "mustaherukka", "punaherukka"]
+        },
 
 
-    // rikkakasvit: ["pujo", "voikukka", "lupiini"],
-    // tuholaiset: ["rotat", "ripsiäiset", "etanat"],
-    // maapera: "savinen, kuiva",
-    // vyohyke: "IV",
+    ],
+
 
     diary: [
         {
@@ -67,11 +91,5 @@ const testdata = {
         }
     ]
 }
-
-
-
-
-
-
 
 export default testdata;

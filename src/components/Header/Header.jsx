@@ -10,7 +10,7 @@ const Header = () => {
     return (
         <header className="header">
             <img src={logo} className="logo" alt="logo" />
-            <h1>MansikkaPaikka</h1>
+            <h1>KukkaKaari</h1>
             <div className="header__icons">
                 <PersonIcon />
                 <HelpIcon />

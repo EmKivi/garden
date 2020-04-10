@@ -2,18 +2,19 @@ import React from 'react';
 import './Diary.css';
 import testdata from '../../testdata.js';
 
-const Diary = () => {
+const Diary = (props) => {
     return (
         <div className="diary">
-            <Notes />
+            <Notes diary={props.diary} />
         </div>
 
     );
 }
 
 
-const Notes = () => {
-    let markings = testdata.diary.slice().map(mark => {
+const Notes = (props) => {
+
+    let markings = props.diary.slice().map(mark => {
         return (
             <div className="note">
                 <h4>{mark.date}</h4>
