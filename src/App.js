@@ -12,49 +12,66 @@ import NewTask from './components/NewTask/NewTask';
 
 import testdata from './testdata.js';
 
+// let list = props.lista.map(name => { return (<li>{name}</li>) });
+
 
 class App extends Component {
-  state = { data: testdata }
+
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: testdata,
+      kasvit: testdata.kasvit,
+      olio: { name: "odottaa", type: "" }
+    };
+    this.handleNewPlant = this.handleNewPlant.bind(this);
+  }
+
+
+  // kasvit taulukossa on objekteja, pitäisi selvittää minkä objektin tyyppi vastaa 
+  //input objektin tyyppiä, ja lisätä uusi nimi oikean tyyppisen objektin listaan
+
+
+
+
+  // TOIMII:
+  //tämä lisää listaan "undefinied" aina väliin
+  handleNewPlant(olio) {
+    this.setState({ olio });
+    let name = olio.name;    
+    let storedData = this.state.kasvit.slice();
+    storedData[0].lista.push(name);
+
+    this.setState({
+      kasvit: storedData
+    })
+    console.log("passDown called! Uusin lisäys:" + olio.name + " tilan muutos: " + this.state.kasvit[0].lista);
+
+  }
+
+
 
   render() {
     return (
+
       <Router>
         <div className="App">
           <Header />
           <div className="App__content">
-          
-            <Route path="/" exact render={()=> <Garden data={this.state.data} />} />
+            <Route path="/" exact render={() => <Garden kasvit={this.state.kasvit} pass={this.handleNewPlant} />} />
             <Route path="/weather" exact component={Weather} />
             <Route path="/chores" exact component={Calendar} />
             <Route path="/newtask" exact component={NewTask} />
-            <Route path="/diary" exact component={Diary} />
+            <Route path="/diary" exact render={() => <Diary diary={this.state.data.diary} />} />
           </div>
           <Menu />
-      
+
         </div>
       </Router >
     );
   }
 }
 
-
-
-// function App() {
-//   return (
-//     <Router>
-//       <div className="App">
-//         <Header />
-//         <div className="App__content">
-//           <Route path="/" exact component={Garden} />
-//           <Route path="/weather" exact component={Weather} />
-//           <Route path="/chores" exact component={Calendar} />
-//           <Route path="/newtask" exact component={NewTask} />
-//           <Route path="/diary" exact component={Diary} />
-//         </div>
-//         <Menu />
-//       </div>
-//     </Router >
-//   );
-// }
 
 export default App;
