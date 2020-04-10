@@ -34,8 +34,6 @@ class App extends Component {
 
 
 
-
-  // TOIMII:
   //tämä lisää listaan "undefinied" aina väliin
   handleNewPlant(olio) {
     this.setState({ olio });

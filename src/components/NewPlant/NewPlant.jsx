@@ -32,16 +32,14 @@ class NewPlant extends Component {
 
         event.preventDefault();
         console.log("lähetä lomake");
-        // let data = Object.assign({}, this.state.data);
-        // tässä kutsu pääkomponentin funktioon antaen parametreiksi inputista luodun olion
+
         this.props.pass(this.state.data);
     }
 
 
 
     render() {
-        const onClick = this.props.pass;
-        let param = { nimi: "uuden kasvin nimi" };
+
         return (
             <div className="newplant">
                 <form onSubmit={this.handleSubmit}>
@@ -54,8 +52,8 @@ class NewPlant extends Component {
                         <option value="sipulikasvit">sipulikasvi</option>
                         <option value="marjapensaat">marjapensas</option>
                     </select>
-                    <button type="submit" onClick={() => onClick(param)} className="newplant__icon" >+</button>
-                    {/* <AddCircleIcon type="submit" onClick={() => onClick(param)} className="newplant__icon" style={{ fontSize: 36 }} /> */}
+                    {/* <button type="submit" onClick={this.handleSubmit} className="newplant__icon" >+</button> */}
+                    <AddCircleIcon type="submit" onClick={this.handleSubmit} className="newplant__icon" style={{ fontSize: 36 }} />
 
                 </form>
 
