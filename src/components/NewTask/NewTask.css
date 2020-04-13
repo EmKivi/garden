@@ -4,12 +4,59 @@
 .newtask {
     display: flex;
     flex-direction: column;
-    background-color: goldenrod;
-    padding: 0.5em;
-    
+    justify-content: space-between;
+    background-color: rgb(93, 104, 22);
+
     min-height: 100%;
+   
+    
 }
 
-.newtask > * {
-    margin: 0.5em;
+
+
+
+.newtask textarea {
+   display: flex;
+    margin: 3em;
+}
+
+.newtask input {
+    display: flex;
+     margin: 7em;
+     font-size: large;
+ }
+
+.newtask__buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 4em;
+ 
+}
+
+
+
+.newtask__submit, .newtask__back, .newtask__clear{
+    height: 40px;
+    width: 70px;
+    border-radius: 25%;
+    border: none;
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+
+.newtask__submit {
+    background-color: goldenrod;
+}
+
+.newtask__clear{
+    background-color: rgb(197, 43, 102);
+}
+
+.newtask__back {
+
+    background-color: #999;
+   
 }

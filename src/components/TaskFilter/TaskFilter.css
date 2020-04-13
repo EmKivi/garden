@@ -1,0 +1,63 @@
+
+.taskfilter {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 2em;
+    flex-grow: 1;
+    
+}
+
+.taskfilter ul{   
+    list-style: none;
+  }
+
+.taskfilter li{   
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+
+    color: #ddd;
+   padding: 0.3em;
+  }
+
+  .taskfilter li >*{   
+    display: flex;
+    justify-content: space-between;
+  }
+  .taskfilter button{   
+   margin: 0.5em;
+  }
+
+
+  .taskfilter input{   
+    display: flex;
+    margin: 0.5em;
+  }
+
+.taskfilter > * {
+    border-top: 2px dashed rgb(55, 6, 60);
+    margin-bottom: 3em;
+}
+
+.taskfilter__late{
+color: rgb(180, 77, 77);
+
+}
+
+.taskfilter__today{
+color: yellow;
+}
+
+.taskfilter__upcoming{
+color: green;
+}
+
+
+.taskfilter__date{
+  color: rgb(126, 25, 25);
+  font-weight: bold;
+}
+
+

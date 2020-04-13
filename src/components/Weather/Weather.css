@@ -1,5 +1,22 @@
 .weather {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(26, 82, 138);
     height: 100%;
     color: #ccc;
+    padding: 20px solid blue;
+}
+
+
+.weather h2{
+    display: flex;
+    font-size: 7em;
+  
+}
+
+
+.weather img {
+    width: 10em;
 }

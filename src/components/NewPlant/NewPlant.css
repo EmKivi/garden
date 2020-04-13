@@ -8,13 +8,13 @@
 
 
   .newplant__icon {
-    display: flex;
-      background-color: rgb(83, 220, 230);
+      display: flex;
+      color: rgb(160, 29, 165);
       margin-top: 0.1em;
       border: none;
       border-radius: 40%;
       font-size: 1.5em;
-      margin-top: 0.2em;
+      /* margin-top: 0.2em; */
       height: 30px;
       width: 30px;
       text-align: center;
