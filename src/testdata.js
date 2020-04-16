@@ -2,36 +2,45 @@ const testdata = {
 
     kasvit: [
 
-        {
-            id: "1",
-            tyyppi: "Yrtit",
-            lista: ["basilika", "lipstikka", "kirveli", "tinjami", "rosmariini", "tilli", "persilja"]
-        },
-        {
-            id: "2",
-            tyyppi: "Yksivuotiset",
-            lista: ["unikko", "auringonkukka", "päivänsini"]
-        },
-        {
-            id: "3",
-            tyyppi: "Hyötykasvit",
-            lista: ["nokkonen"]
-        },
-        {
-            id: "4",
-            tyyppi: "Vihannekset",
-            lista: ["tomaatti", "salaatti", "kaali", "kurkku", "munakoiso"]
-        },
-        {
-            id: "5",
-            tyyppi: "Sipulikasvit",
-            lista: ["liljat", "narsissi", "tulppaani"]
-        },
-        {
-            id: "6",
-            tyyppi: "Marjapensaat",
-            lista: ["vadelma", "mustikka", "karviainen", "mustaherukka", "punaherukka"]
-        },
+        ["Yrtit", "basilika", "lipstikka", "kirveli", "tinjami", "rosmariini", "tilli", "persilja"],
+        ["Yksivuotiset", "unikko", "auringonkukka", "päivänsini"],
+        ["Hyötykasvit", "nokkonen"],
+        ["Vihannekset", "tomaatti", "salaatti", "kaali", "kurkku", "munakoiso"],
+        ["Sipulikasvit", "liljat", "narsissi", "tulppaani"],
+        ["Marjapensaat", "vadelma", "mustikka", "karviainen", "mustaherukka", "punaherukka"],
+        ["Muut", "kanto", "omenapuu"]
+
+
+        // {
+        //     id: "1",
+        //     tyyppi: "Yrtit",
+        //     lista: ["basilika", "lipstikka", "kirveli", "tinjami", "rosmariini", "tilli", "persilja"]
+        // },
+        // {
+        //     id: "2",
+        //     tyyppi: "Yksivuotiset",
+        //     lista: ["unikko", "auringonkukka", "päivänsini"]
+        // },
+        // {
+        //     id: "3",
+        //     tyyppi: "Hyötykasvit",
+        //     lista: ["nokkonen"]
+        // },
+        // {
+        //     id: "4",
+        //     tyyppi: "Vihannekset",
+        //     lista: ["tomaatti", "salaatti", "kaali", "kurkku", "munakoiso"]
+        // },
+        // {
+        //     id: "5",
+        //     tyyppi: "Sipulikasvit",
+        //     lista: ["liljat", "narsissi", "tulppaani"]
+        // },
+        // {
+        //     id: "6",
+        //     tyyppi: "Marjapensaat",
+        //     lista: ["vadelma", "mustikka", "karviainen", "mustaherukka", "punaherukka"]
+        // }
 
 
     ],
@@ -39,31 +48,24 @@ const testdata = {
 
     diary: [
         {
-            id: "1",
-            date: "2020-04-02",
+            id: "111",
+            date: "2020-03-02",
             note: "Satoi koko päivän. Olin sisällä koko päivän ja vain suunnittelin tulevia istutuksia."
         },
         {
-            id: "2",
-            date: "06-05-2020",
-            note: "kylvin pussillisen niittykukkien siemeniä"
+            id: "222",
+            date: "2020-03-15",
+            note: "laitoin taimia itämään"
         },
         {
-            id: "3",
-            date: "09-05-2020",
-            note: "kastelin kaikki"
-        },
-        {
-            id: "4",
-            date: "21-05-2020",
-            note: "lannoitin"
-        },
-        {
-            id: "5", date: "01-06-2020",
-            note: "aurinkoinen päivä"
-        },
+            id: "333",
+            date: "2020-03-22",
+            note: "karsin taimia"
+        }
 
     ],
+
+
     tasks: [
         {
             id: "1",
@@ -72,7 +74,7 @@ const testdata = {
         },
         {
             id: "2",
-            date: "2020-04-10",
+            date: "2020-06-10",
             note: "kylvä pussillisen niittykukkien siemeniä"
         },
         {
@@ -87,8 +89,16 @@ const testdata = {
         },
         {
             id: "5", date: "2020-06-01",
-            note: "kitkeminen ja karsiminen"
+            note: "kitkeminen"
+        },
+        {
+            id: "6", date: "2020-04-13",
+            note: "karsiminen"
+        },
+        {
+            id: "7", date: "2020-04-16", note: "leikkaa omenapuut"
         }
+
     ]
 }
 

@@ -1,25 +1,29 @@
 import React from 'react';
 import './Diary.css';
-import testdata from '../../testdata.js';
+import moment from 'moment';
 
 const Diary = (props) => {
     return (
-        <div className="diary">
-            <Notes diary={props.diary} />
-        </div>
 
+        <div className="diary__bg">
+            <div className="diary">
+                <Notes diary={props.diary} />
+            </div>
+        </div>
     );
 }
 
 
 const Notes = (props) => {
 
-    let markings = props.diary.slice().map(mark => {
+
+    let markings = props.diary.slice().map((mark, index) => {
+
         return (
-            <div className="note">
-                <h4>{mark.date}</h4>
+            <div className="note" key="index">
+                <h4>{moment(mark.date).format('D.M.Y').toString()}</h4>
                 <hr />
-                <p><em>{mark.note} </em></p>
+                <p>{mark.note}</p>
             </div>
         )
     });

@@ -3,60 +3,68 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import './NewPlant.css';
 
 
+//*OK*
+// NewPlant -komponetti toimii
+
+//"WARNING: Use the `defaultValue` or `value` props on <select> instead of setting `selected` on <option>.""
+
 class NewPlant extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: { type: undefined, name: undefined }
+            data: { type: "", name: "" },
         }
-        this.handleInputChange = this.handleInputChange.bind(this);
+        // preserve the initial state in a new object
+        this.baseState = this.state;
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
     }
 
-
+    //*OK*
+    //event handler, päivittää merkki kerrallaan datan tilaa
     handleInputChange(event) {
-        const target = event.target;
-        const value = target.name === 'isGoing' ? target.checked : target.value;
-        const name = target.name;
-
+        console.log(event.target.value)
+        const value = event.target.value;
+        const name = event.target.name;
         this.setState({
-            // käytä datan sisältöä purettuna ja liitä siihen uusin
-            ...this.state.data,
-            data: { [name]: value }
-        });
+            data: { ...this.state.data, [name]: value }
+        })
     }
 
-    // ottaa sisään objektina inputin tiedot
-    //kutsuu pääkomponentin handleNewPlant() funktiota
+
+    //*OK*
+    //käsittelee uuden kasvin ja lähettää pääkomponentille
     handleSubmit(event) {
-
+        if (this.state.data.type === "") {
+            alert("valitse tyyppi")
+        }
         event.preventDefault();
-        console.log("lähetä lomake");
-
-        this.props.pass(this.state.data);
+        this.setState(this.baseState);
+        this.props.onNewPlant(this.state.data)
     }
 
 
-
+    //WARNING, muutoin *OK*
     render() {
 
         return (
-            <div className="newplant">
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="name" value={this.state.data.name} onChange={this.handleInputChange} className="newplant__input" placeholder="lisää uusi kasvi" />
-                    <select name="type" value={this.state.data.type} onChange={this.handleInputChange} >
-                        <option value="yrtit">yrtti</option>
-                        <option value="yksivuotiset">yksivuotinen</option>
-                        <option value="hyotykasvit">hyötykasvi</option>
-                        <option value="vihannekset">vihannes</option>
-                        <option value="sipulikasvit">sipulikasvi</option>
-                        <option value="marjapensaat">marjapensas</option>
+
+            <div className="newplant" >
+                <form >
+                    <input type="text" name="name" value={this.state.data.name}
+                        onChange={this.handleInputChange} className="newplant__input" placeholder="lisää uusi kasvi" />
+                    <select required name="type" value={this.state.data.type} onChange={this.handleInputChange}>
+                        <option value="" disabled selected hidden>Valitse...</option>
+                        <option value="Yrtit">yrtti</option>
+                        <option value="Yksivuotiset">yksivuotinen</option>
+                        <option value="Hyötykasvit">hyötykasvi</option>
+                        <option value="Vihannekset">vihannes</option>
+                        <option value="Sipulikasvit">sipulikasvi</option>
+                        <option value="Marjapensaat">marjapensas</option>
+                        <option value="Muut">muu</option>
                     </select>
-                    {/* <button type="submit" onClick={this.handleSubmit} className="newplant__icon" >+</button> */}
-                    <AddCircleIcon type="submit" onClick={this.handleSubmit} className="newplant__icon" style={{ fontSize: 36 }} />
-
+                    <AddCircleIcon onClick={this.handleSubmit} className="newplant__icon" style={{ fontSize: 36 }} />
                 </form>
-
             </div>);
     }
 }

@@ -1,19 +1,20 @@
 import React from 'react';
 
 
+//*OK*
+//listaa taulukosta kasvit
+
+
 const Listing = ({ props }) => {
 
-    // let moi = props[0].id;
-    // tämän pitäisi käsitellä propsina saatu array olioita mutta ei sitä tee
-
-    let list = props.lista.map(name => { return (<li>{name}</li>) });
-
+    let list = props.slice();
+    list.shift();
+    list = list.map((name, index) => { return (<li key={index}>{name}</li>) });
 
     return (
         <>
-            <h3>{props.tyyppi}</h3>
+            <h3>{props[0]}</h3>
             <ul>
-
                 {list}
             </ul>
         </>

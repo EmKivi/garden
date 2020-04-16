@@ -10,10 +10,14 @@ const Header = () => {
     return (
         <header className="header">
             <img src={logo} className="logo" alt="logo" />
-            <h1>KukkaKaari</h1>
+            <div className="header__headline">
+                {/* <h1>Tipula</h1> */}
+                <h1>Huvikumpu</h1>
+                <em>puutarhan suunnittelu</em></div>
+
             <div className="header__icons">
-                <PersonIcon />
-                <HelpIcon />
+                <PersonIcon onClick={()=>alert("Käyttäjän tietoja ei voi vielä tallentaa.")} />
+                <HelpIcon onClick={()=>alert("Ohjeistus tulossa.")}/>
             </div>
         </header>);
 }

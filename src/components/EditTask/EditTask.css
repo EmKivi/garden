@@ -1,11 +1,11 @@
 
 
 
-.newtask {
+.edittask {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: rgb(83, 11, 90);
+    background-color: rgb(61, 15, 56);
 
     min-height: 100%;
    
@@ -15,27 +15,18 @@
 
 
 
-.newtask textarea {
+.edittask textarea {
    display: flex;
     margin: 3em;
 }
 
-
-.newtask__calendar{
-    display: flex;
-    flex-direction: column;
-   align-self: center;
- 
-}
-
-
-.newtask input {
+.edittask input {
     display: flex;
      margin: 7em;
      font-size: large;
  }
 
-.newtask__buttons {
+.edittask__buttons {
     display: flex;
     justify-content: space-around;
     margin-bottom: 4em;
@@ -44,7 +35,7 @@
 
 
 
-.newtask__submit, .newtask__back, .newtask__clear{
+.newtask__submit, .edittask__back{
     height: 40px;
     width: 70px;
     border-radius: 25%;
@@ -60,11 +51,11 @@
     background-color: goldenrod;
 }
 
-.newtask__clear{
+/* .newtask__clear{
     background-color: rgb(197, 43, 102);
-}
+} */
 
-.newtask__back {
+.edittask__back {
 
     background-color: #999;
    

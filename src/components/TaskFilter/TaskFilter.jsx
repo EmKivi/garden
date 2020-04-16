@@ -1,60 +1,61 @@
 import React from 'react';
-import testdata from '../../testdata.js';
+// import { Link } from 'react-router-dom';
+import './TaskFilter.css';
+import TaskCreator from '../TaskCreator/TaskCreator';
+import moment from 'moment';
 
-// SISÄLTÄÄ MYÖS FUNKTIO-KOMPONENTIN "TaskCreator"
 
-const TaskFilter = () => {
-   
+// import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+// import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+// import CreateRoundedIcon from '@material-ui/icons/CreateRounded';
+// import ArrowRight from '@material-ui/icons/ArrowRight';
+
+
+
+const TaskFilter = (props) => {
+
     let today = [];
-    let late = ["myöhässä"];
+    let late = [];
     let upcoming = [];
-    let row = testdata.tasks;
+    let row = props.tasks;
+    let now = moment();
+    let due;
+
+    row.sort((a, b) => moment(a.date) - moment(b.date));
 
 
     for (let i = 0; i < row.length; i++) {
-
-        if (Date.parse(row[i].date) < Date.now()) {
-            late.push(row[i]);
+        due = moment(row[i].date);
+        if (due.month() + due.date() + due.year() === now.month() + now.date() + now.year()) {
+            today.push(row[i]);
         }
-        else { upcoming.push(row[i]) }
+        else if (due > now) {
+            upcoming.push(row[i]);
+        }
+        else { late.push(row[i]) }
     }
 
-    // if (late.length>0){
-    //     alert("tehtäviä on myöhässä!")
-    // }
 
     return (
 
-        <>
-            <hr />
-            <h3>Myöhässä</h3>
-            <TaskCreator props={late} />
-            <hr />
-            <h3>Tänään</h3>
-            <TaskCreator props={today} />
-            <hr />
-            <h3>Tulossa</h3>
-            <TaskCreator props={upcoming} />
+        <div className="taskfilter">
 
-        </>)
+            <div className="taskfilter__late">
+                <h3>Myöhässä</h3>
+                <TaskCreator modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={late} />
+            </div>
+
+            <div className="taskfilter__today">
+                <h3>Tänään</h3>
+                <TaskCreator modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={today} />
+            </div>
+
+            <div className="taskfilter__upcoming">
+                <h3>Tulossa</h3>
+                <TaskCreator modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={upcoming} />
+            </div>
+        </div >)
 }
 
-const TaskCreator = ({ props }) => {
-
-    let rows = props.map(
-        task => {
-            return (
-                <li>
-                    {task.date}<br />
-                    {task.note}
-                    {/* <input type="checkbox"/> */}
-                </li>
-            )
-        });
-
-    return (
-        <ul>{rows}</ul>
-    )
-}
 
 export default TaskFilter;
