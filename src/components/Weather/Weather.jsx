@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import './Weather.css';
-import etana from './etana.png';
-import HelpIcon from '@material-ui/icons/Help';
+
 import moment from 'moment';
 
 
@@ -12,33 +11,31 @@ export default class Weather extends Component {
     isLoaded: false,
     data: {}
 
-    // isLoaded: true,
-    // data: { current: { temperature: 4, weather_descriptions: "poutaa", feelslike: 3, weather_icons: etana } }
   };
 
-  // componentDidMount() {
-  //   fetch(
-  //     "http://api.weatherstack.com/current?access_key=d62d6cc74e39926236cbd4eae59814cf&query=Laitila"
-  //   )
-  //     .then(res => res.json())
-  //     .then(
-  //       res => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           data: res
-  //         });
-  //       },
-  //       // Note: it's important to handle errors here
-  //       // instead of a catch() block so that we don't swallow
-  //       // exceptions from actual bugs in components.
-  //       error => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           error
-  //         });
-  //       }
-  //     );
-  // }
+  componentDidMount() {
+    fetch(
+      "http://api.weatherstack.com/current?access_key=d62d6cc74e39926236cbd4eae59814cf&query=Laitila"
+    )
+      .then(res => res.json())
+      .then(
+        res => {
+          this.setState({
+            isLoaded: true,
+            data: res
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
+  }
 
   render() {
     const { error, isLoaded, data } = this.state;
@@ -57,8 +54,6 @@ export default class Weather extends Component {
         
           <h3>
             <em>Tuntuu kuin: {this.state.data.current.feelslike}</em></h3>
-
-          {/* <HelpIcon onClick={() => { alert("tämänhetkinen säätieto on haettu kohteesta WeatherStack REST API osoitteesta https://weatherstack.com/") }} /> */}
         </div>
       );
     }

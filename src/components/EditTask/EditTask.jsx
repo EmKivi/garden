@@ -6,8 +6,6 @@ import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 
 
-
-
 class EditTask extends Component {
     constructor(props) {
         super(props);
@@ -89,14 +87,14 @@ class EditTask extends Component {
     render() {
         return (
             <form className="edittask">
-                <h2>Muokkaa</h2>
+
                 <textarea name="note" value={this.state.data.note} onChange={this.handleInputChange} type="text" rows="10" />
                 <input name="date" value={this.state.data.date === "" ? this.props.modify : this.state.data.date} onChange={this.handleInputChange} type="date" />
                 <div className="edittask__buttons">
                     <button onClick={this.handleCancel} className="edittask__back">palaa</button>
-                    <DeleteForeverIcon onClick={() => { if (window.confirm('Haluatko poistaa merkinnän?')) this.handleDelete() }} />
-                    <button onClick={this.handleSubmit} className="newtask__submit" >tallenna</button>
-                    <button onClick={() => this.handleDone(this.state.data)}>siirrä merkintä päiväkirjaan</button>
+                    <button onClick={() => { if (window.confirm('Haluatko poistaa merkinnän?')) this.handleDelete() }} className="edittask__delete">poista</button>
+                    <button onClick={this.handleSubmit} className="edittask__submit" >tallenna</button>
+                    <button onClick={() => this.handleDone(this.state.data)} className="edittask__diary">kirjaa</button>
                 </div>
 
             </form >
@@ -108,9 +106,3 @@ class EditTask extends Component {
 export default withRouter(EditTask);
 
 
-{/* {this.props.onDelete ?
-                    <div className="newtask__buttons">
-                        <DeleteForeverIcon onClick={() => { this.props.onDelete(this.state.data.id) }} />
-                    </div> : ""}
-
-} */}

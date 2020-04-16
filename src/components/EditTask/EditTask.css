@@ -18,6 +18,8 @@
 .edittask textarea {
    display: flex;
     margin: 3em;
+    padding: 1em;
+    font-size: 1.2rem;
 }
 
 .edittask input {
@@ -35,7 +37,7 @@
 
 
 
-.newtask__submit, .edittask__back{
+.edittask__submit, .edittask__back, .edittask__diary, .edittask__delete{
     height: 40px;
     width: 70px;
     border-radius: 25%;
@@ -47,16 +49,22 @@
 }
 
 
-.newtask__submit {
+.edittask__submit {
     background-color: goldenrod;
 }
 
-/* .newtask__clear{
-    background-color: rgb(197, 43, 102);
-} */
 
 .edittask__back {
 
     background-color: #999;
    
+}
+
+.edittask__delete {
+    background-color: #666;
+}
+
+
+.edittask__diary{
+    background-color: green;
 }
