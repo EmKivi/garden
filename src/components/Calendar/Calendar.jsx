@@ -13,7 +13,7 @@ const Calendar = (props) => {
         <div className="calendar">
             <div className="calendar__head">
                 <h2>Tehtävälista</h2>
-                <Link to="/newtask">
+                <Link to="/taskform">
                     <AddCircleIcon className="calendar__add" style={{ fontSize: 50 }} /></Link>
             </div>
 

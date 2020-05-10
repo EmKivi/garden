@@ -7,6 +7,7 @@ import ArrowRight from '@material-ui/icons/ArrowRight';
 
 
 //KOMPONENTIN NIMI ON HARHAANJOHTAVA
+//LUO SIVUN JOLLA KAIKKI TASKIT NÄKYVÄT
 // COMPONENTS: TaskCreator & Task
 
 const TaskCreator = (props) => {

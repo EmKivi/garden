@@ -9,6 +9,7 @@ import Weather from './components/Weather/Weather';
 import Diary from './components/Diary/Diary';
 import Calendar from './components/Calendar/Calendar';
 import NewTask from './components/NewTask/NewTask';
+import TaskForm from './components/TaskForm/TaskForm';
 import EditTask from './components/EditTask/EditTask';
 
 import testdata from './testdata.js';
@@ -142,8 +143,8 @@ else{
                 onTaskDone={this.handleTaskDone}
                 tasks={this.state.tasks} />}
             />
-            <Route path="/newtask" exact render={() =>
-              <NewTask onNewTask={this.handleNewTask} />} />
+            <Route path="/taskform" exact render={() =>
+              <TaskForm onNewTask={this.handleNewTask} />} />
 
             <Route path="/diary" exact render={() =>
               <Diary diary={this.state.done} />} />
