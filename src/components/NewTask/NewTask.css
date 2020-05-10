@@ -6,9 +6,8 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: rgb(83, 11, 90);
-
     min-height: 100%;
-   
+    max-height: 100%;
     
 }
 
@@ -19,23 +18,28 @@
    display: flex;
     margin: 3em;
     font-size: 1.2rem;
-    padding: 1em;
+     padding: 1em;
 }
 
 
-.newtask__calendar{
-    display: flex;
-    flex-direction: column;
-   align-self: center;
- 
-}
 
 
 .newtask input {
     display: flex;
-     margin: 7em;
+     margin: 3em;
      font-size: large;
+     width: 50%;
+     align-self: center;
  }
+
+
+.newtask h3{
+    display: flex;
+    align-self: center;
+    padding-top: 0.8em;
+    color: rgb(76, 186, 201);
+}
+
 
 .newtask__buttons {
     display: flex;

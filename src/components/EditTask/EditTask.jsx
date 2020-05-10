@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './EditTask.css';
 import { withRouter } from "react-router";
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 
 
+//PITÄISI LUODA TASKFORM JOTA KÄYTTÄÄ SEKÄ EDITTASK ETTÄ NEWTASK
 
 class EditTask extends Component {
     constructor(props) {
@@ -41,10 +41,7 @@ class EditTask extends Component {
     handleSubmit(event) {
         event.preventDefault();
         console.log("EditTask: lähetä lomake" + this.state.data.note + this.state.data.date);
-        let data = Object.assign({}, this.state.data);
-        // data.id = uuidv4();
         this.props.onModifyTask(this.state.data);
-        // this.props.onNewTask(data);
         this.props.history.push("/chores");
     }
 
@@ -87,15 +84,17 @@ class EditTask extends Component {
     render() {
         return (
             <form className="edittask">
+                <h3>Muokkaa tehtävää</h3>
 
                 <textarea name="note" value={this.state.data.note} onChange={this.handleInputChange} type="text" rows="10" />
                 <input name="date" value={this.state.data.date === "" ? this.props.modify : this.state.data.date} onChange={this.handleInputChange} type="date" />
                 <div className="edittask__buttons">
                     <button onClick={this.handleCancel} className="edittask__back">palaa</button>
                     <button onClick={() => { if (window.confirm('Haluatko poistaa merkinnän?')) this.handleDelete() }} className="edittask__delete">poista</button>
-                    <button onClick={this.handleSubmit} className="edittask__submit" >tallenna</button>
-                    <button onClick={() => this.handleDone(this.state.data)} className="edittask__diary">kirjaa</button>
+                    <button onClick={() => { this.handleDone() }} className="edittask__diary">kirjaa</button>
                 </div>
+                <span onClick={this.handleSubmit} className="edittask__submit" >tallenna</span>
+                {/* <button onClick={this.handleSubmit} className="edittask__submit" >tallenna</button> */}
 
             </form >
 

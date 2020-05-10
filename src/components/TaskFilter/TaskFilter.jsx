@@ -5,14 +5,10 @@ import TaskCreator from '../TaskCreator/TaskCreator';
 import moment from 'moment';
 
 
-// import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-// import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
-// import CreateRoundedIcon from '@material-ui/icons/CreateRounded';
-// import ArrowRight from '@material-ui/icons/ArrowRight';
-
-
 
 const TaskFilter = (props) => {
+
+
 
     let today = [];
     let late = [];
@@ -20,6 +16,7 @@ const TaskFilter = (props) => {
     let row = props.tasks;
     let now = moment();
     let due;
+
 
     row.sort((a, b) => moment(a.date) - moment(b.date));
 
@@ -32,7 +29,9 @@ const TaskFilter = (props) => {
         else if (due > now) {
             upcoming.push(row[i]);
         }
-        else { late.push(row[i]) }
+        else {
+            late.push(row[i]);
+        }
     }
 
 
@@ -56,6 +55,11 @@ const TaskFilter = (props) => {
             </div>
         </div >)
 }
+
+
+
+
+
 
 
 export default TaskFilter;

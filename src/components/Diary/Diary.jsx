@@ -2,11 +2,15 @@ import React from 'react';
 import './Diary.css';
 import moment from 'moment';
 
+
 const Diary = (props) => {
     return (
 
         <div className="diary__bg">
+          
+            <h3>Kirjaukset päiväkirjaan:</h3>
             <div className="diary">
+
                 <Notes diary={props.diary} />
             </div>
         </div>

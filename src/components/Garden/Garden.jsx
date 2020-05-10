@@ -5,12 +5,17 @@ import NewPlant from '../NewPlant/NewPlant';
 
 
 
-//*OK*
-//renderöi Garden -näkymän
-const Garden = (props) => {
+//LISTING EI NÄYTÄ JÄRKEVÄLTÄ
+//PITÄISI LUODA KOMPONENTTI JOKA ASETTELEE LISTAN OBJEKTIT
+//LISTOJEN MÄÄRÄSTÄ RIIPPUMATTA
+//WARNING: KEYS
 
+const Garden = (props) => {
+    console.log("Garden--rendered");
     return (
         <div className="garden" >
+
+            {/* form for adding new plant to the chosen list */}
             <NewPlant onNewPlant={props.onNewPlant} />
 
             <div className="garden__section">
@@ -40,7 +45,6 @@ const Garden = (props) => {
                     <Listing props={props.kasvit[6]} />
                 </div>
             </div>
-
         </div >
     );
 }

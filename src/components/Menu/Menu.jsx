@@ -9,13 +9,14 @@ import T_logo from './img/tehtava.png';
 const Menu = () => {
     return (
         <div className="menu">
-            <Link to="/"><img src={G_logo} alt="logo" /></Link>
-            <Link to="/weather"> <img src={S_logo} alt="logo" /></Link>
-            <Link to="/chores"><img src={T_logo} alt="logo" /></Link>
-            <Link to="/diary"><img src={D_logo} alt="logo" /></Link>
-            
-        </div>
+            <Link to="/"><div><img src={G_logo} alt="logo" /></div></Link>
+        <Link to="/weather">  <div>  <img src={S_logo} alt="logo" /></div></Link>
+            <Link to="/chores"><div><span className="badge">1</span><img src={T_logo} alt="logo" /></div></Link>
+            <Link to="/diary"> <div> <img src={D_logo} alt="logo" />    </div></Link>    </div>
+
     );
 }
 
 export default Menu;
+
+

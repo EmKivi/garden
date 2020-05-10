@@ -19,3 +19,20 @@
 .menu img:active{
     transform:scale(0.8);
  }
+
+
+ .badge {
+    display: block;
+    background-color: rgb(231, 57, 57);
+    height: 1em;
+    width: 1em;
+    line-height: 1em;
+    padding: 0.5em;
+    border-radius: 35%;
+    color: rgb(240, 188, 91);
+    position: absolute;
+    font-weight: bold;
+    text-align: center;
+
+
+  }

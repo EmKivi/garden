@@ -17,7 +17,7 @@ const Calendar = (props) => {
                     <AddCircleIcon className="calendar__add" style={{ fontSize: 50 }} /></Link>
             </div>
 
-            <TaskFilter modified={props.chooseModified} onDelete={props.onDelete} onTaskDone={props.onTaskDone}tasks={props.tasks} />
+            <TaskFilter late={props.late} modified={props.chooseModified} onDelete={props.onDelete} onTaskDone={props.onTaskDone}tasks={props.tasks} />
 
 
 

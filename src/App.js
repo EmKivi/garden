@@ -12,7 +12,7 @@ import NewTask from './components/NewTask/NewTask';
 import EditTask from './components/EditTask/EditTask';
 
 import testdata from './testdata.js';
-
+// import moment from 'moment';
 
 class App extends Component {
 
@@ -23,7 +23,9 @@ class App extends Component {
       tasks: testdata.tasks,
       kasvit: testdata.kasvit,
       done: testdata.diary,
-      modify: {}
+      modify: {},
+      length: 0
+
 
     };
     this.handleNewPlant = this.handleNewPlant.bind(this);
@@ -32,28 +34,40 @@ class App extends Component {
     this.handleTaskDone = this.handleTaskDone.bind(this);
     this.handleModifyTask = this.handleModifyTask.bind(this);
     this.chooseModified = this.chooseModified.bind(this);
+    this.lateLength = this.lateLength.bind(this);
   }
 
 
+
   // *OK*
-  // lisää uuden kasvin oikeaan listaan  
+  // adds new plant to the chosen list
+  //lisää uuden kasvin oikeaan listaan  
   handleNewPlant(olio) {
-    console.log(olio);
+    console.log("New plant handled");
+
     let storedData = this.state.kasvit.slice();
-    for (let i = 0; i < storedData.length; i++) {
-      if (storedData[i][0] === olio.type) {
-        storedData[i].push(olio.name);
-      }
+
+if (olio.type===""){
+  storedData[6].push(olio.name);
+}
+else{
+  for (let i = 0; i < storedData.length; i++) {
+    if (storedData[i][0] === olio.type) {
+      storedData[i].push(olio.name);
     }
+  }
+}
+
+  
     this.setState({
       kasvit: storedData,
       olio
     })
-
   }
 
 
   // *OK*
+  //adds new task to the list of ongoing tasks
   // työntää uuden olion tasks-taulukkoon
   handleNewTask(olio) {
     console.log("App -- handling new task:" + olio.note);
@@ -64,6 +78,7 @@ class App extends Component {
 
 
   // *OK*
+  // moves the task to the diary when it's modified to be done
   // siirtää tehdyn olion päiväkirjaan ja poistaa tehtävälistasta
   handleTaskDone(olio) {
     console.log("App--done!");
@@ -79,6 +94,7 @@ class App extends Component {
 
 
   // *OK*
+  //deletes task
   handleTaskDelete(id) {
     console.log("App--poisto");
     let tasks = this.state.tasks.filter(task => task.id !== id);
@@ -86,7 +102,7 @@ class App extends Component {
   }
 
 
-  // *OK*
+  // TÄMÄN VOISI JÄRKEISTÄÄ REACT URL-TOIMINNOLLA
   handleModifyTask(modified) {
     let tasks = this.state.tasks.slice();
     tasks = this.state.tasks.filter(task => task.id !== modified.id);
@@ -94,13 +110,16 @@ class App extends Component {
     console.log("App--modify task:" + modified.id);
     this.setState({ tasks, modify: modified });
   }
-
-
-
-  // *OK*
   chooseModified(modify) {
     this.setState({ modify });
   }
+
+  //TÄMÄ EI TOIMI, YRITYS SAADA NOTIFICATION TOTAL MYÖHÄSSÄ OLEVISTA
+  lateLength(length) {
+    console.log("kutsu" + length);
+    this.setState({ length });
+  }
+
 
 
   render() {
@@ -114,11 +133,12 @@ class App extends Component {
               <Garden
                 kasvit={this.state.kasvit}
                 onNewPlant={this.handleNewPlant} />} />
+
             <Route path="/weather" exact component={Weather} />
             <Route path="/chores" exact render={() =>
               <Calendar
                 chooseModified={this.chooseModified}
-
+                late={this.lateLength}
                 onTaskDone={this.handleTaskDone}
                 tasks={this.state.tasks} />}
             />
@@ -130,12 +150,12 @@ class App extends Component {
             <Route path="/edittask" render={() =>
               <EditTask
                 modify={this.state.modify}
-                
+
                 onModifyTask={this.handleModifyTask}
                 onTaskDone={this.handleTaskDone}
                 onDelete={this.handleTaskDelete} />} />
           </div>
-          <Menu />
+          <Menu late={this.state.length} />
         </div>
       </Router >
     );
