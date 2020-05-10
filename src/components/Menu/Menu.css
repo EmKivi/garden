@@ -21,7 +21,7 @@
  }
 
 
- .badge {
+ .badge_red {
     display: block;
     background-color: rgb(231, 57, 57);
     height: 1em;
@@ -33,6 +33,5 @@
     position: absolute;
     font-weight: bold;
     text-align: center;
-
-
   }
+

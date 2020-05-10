@@ -9,16 +9,12 @@ import moment from 'moment';
 //SORTS TASKS TO 3 LIST BASED ON DATE
 const Organizer = (props) => {
 
-
-
     let today = [];
     let late = [];
     let upcoming = [];
     let row = props.tasks;
     let now = moment();
     let due;
-
-
     row.sort((a, b) => moment(a.date) - moment(b.date));
 
 
@@ -35,9 +31,10 @@ const Organizer = (props) => {
         }
     }
 
+    
 
     return (
-
+       
         <div className="taskfilter">
 
             <div className="taskfilter__late">
@@ -58,9 +55,6 @@ const Organizer = (props) => {
 }
 
 
-
-
-
-
-
 export default Organizer;
+
+

@@ -18,8 +18,10 @@ const TaskLister = (props) => {
 
     let rows = props.list.map(
         (task) => {
-            return (<Item modified={props.modified} task={task} done={handleDone} />)
+            return (<Item modified={props.modified} task={task} done={handleDone} key={task.id} />)
         });
+
+
     return (
         <ul>{rows}</ul>
     )
@@ -33,7 +35,7 @@ const Item = props => {
                 <div>
                     <div>{moment(props.task.date).format('D.M.Y').toString()}</div>
                     <div className="taskfilter__icon">
-                        <Link to={"/edittask/" +props.task.id}><ArrowRight  /></Link>
+                        <Link to={"/edittask/" + props.task.id}><ArrowRight /></Link>
                     </div>
                 </div>
             </li>
