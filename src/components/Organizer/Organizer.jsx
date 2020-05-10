@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import './Organizer.css';
-import TaskCreator from '../TaskCreator/TaskCreator';
+import TaskLister from '../TaskLister/TaskLister';
 import moment from 'moment';
 
 
@@ -42,17 +42,17 @@ const Organizer = (props) => {
 
             <div className="taskfilter__late">
                 <h3>Myöhässä</h3>
-                <TaskCreator modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={late} />
+                <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={late} />
             </div>
 
             <div className="taskfilter__today">
                 <h3>Tänään</h3>
-                <TaskCreator modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={today} />
+                <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={today} />
             </div>
 
             <div className="taskfilter__upcoming">
                 <h3>Tulossa</h3>
-                <TaskCreator modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={upcoming} />
+                <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={upcoming} />
             </div>
         </div >)
 }

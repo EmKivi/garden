@@ -7,11 +7,17 @@ import { withRouter } from "react-router";
 class TaskForm extends Component {
     constructor(props) {
         super(props);
+        const data = props.data ? props.data : {
+            id: "", date: "", note: ""
+        }
+
         this.state =
-            { data: { id: "", date: "", note: "" } }
+            { data: data };
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
+        this.handleReturn = this.handleReturn.bind(this);
 
     }
 
@@ -32,23 +38,36 @@ class TaskForm extends Component {
         event.preventDefault();
         console.log("NewTask: lähetä lomake" + this.state.data.note + this.state.data.date);
         let data = Object.assign({}, this.state.data);
-        data.id = uuidv4();
-        this.props.onNewTask(data);
+        data.id = data.id ? data.id : uuidv4();
+
+        this.props.onSubmit(data);
         this.props.history.push("/chores");
     }
 
+    handleReturn() {
 
+        this.props.history.push("/chores");
 
+    }
+    handleDelete() {
+
+        this.props.onDelete(this.state.data.id);
+        this.props.history.push("/chores");
+    }
     render() {
         return (
             <form className="taskform">
-                {this.props.onNewTask ? <p>uusi tehtävä</p> : ""}
-                <h3>Luo uusi tehtävä</h3>
+                {this.state.data.id ? <h3>Muokkaa tehtävää</h3> : <h3>Luo uusi tehtävä</h3>}
+
                 <textarea name="note" value={this.state.data.note} onChange={this.handleInputChange} />
                 <input name="date" value={this.state.data.date} onChange={this.handleInputChange} type="date" />
                 <div>
-                    <button onClick="TODO">palaa</button>
-                    <button onClick={this.handleSubmit}>lisää</button>
+                    <button onClick={this.handleReturn}>palaa</button>
+
+                    <button onClick={this.handleSubmit}>{this.state.data.id ? "TALLENNA" : "LISÄÄ"}</button>
+
+
+                    {this.props.onDelete ? <button onClick={this.handleDelete}>poista</button> : ""}
                 </div>
             </form>);
     }

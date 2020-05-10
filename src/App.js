@@ -8,12 +8,10 @@ import Menu from './components/Menu/Menu';
 import Weather from './components/Weather/Weather';
 import Diary from './components/Diary/Diary';
 import Calendar from './components/Calendar/Calendar';
-import NewTask from './components/NewTask/NewTask';
-import TaskForm from './components/TaskForm/TaskForm';
 import EditTask from './components/EditTask/EditTask';
+import NewTask from './components/NewTask/NewTask';
 
 import testdata from './testdata.js';
-// import moment from 'moment';
 
 class App extends Component {
 
@@ -23,43 +21,37 @@ class App extends Component {
 
       tasks: testdata.tasks,
       kasvit: testdata.kasvit,
-      done: testdata.diary,
-      modify: {},
-      length: 0
-
-
+      done: testdata.diary
     };
     this.handleNewPlant = this.handleNewPlant.bind(this);
-    this.handleNewTask = this.handleNewTask.bind(this);
+    this.handleTaskSubmit = this.handleTaskSubmit.bind(this);
     this.handleTaskDelete = this.handleTaskDelete.bind(this);
-    this.handleTaskDone = this.handleTaskDone.bind(this);
-    this.handleModifyTask = this.handleModifyTask.bind(this);
-    this.chooseModified = this.chooseModified.bind(this);
-    this.lateLength = this.lateLength.bind(this);
+    // this.handleTaskDone = this.handleTaskDone.bind(this);
+
   }
 
 
 
   // *OK*
   // adds new plant to the chosen list
-  //lisää uuden kasvin oikeaan listaan  
+  // lisää uuden kasvin oikeaan listaan  
   handleNewPlant(olio) {
     console.log("New plant handled");
 
     let storedData = this.state.kasvit.slice();
 
-if (olio.type===""){
-  storedData[6].push(olio.name);
-}
-else{
-  for (let i = 0; i < storedData.length; i++) {
-    if (storedData[i][0] === olio.type) {
-      storedData[i].push(olio.name);
+    if (olio.type === "") {
+      storedData[6].push(olio.name);
     }
-  }
-}
+    else {
+      for (let i = 0; i < storedData.length; i++) {
+        if (storedData[i][0] === olio.type) {
+          storedData[i].push(olio.name);
+        }
+      }
+    }
 
-  
+
     this.setState({
       kasvit: storedData,
       olio
@@ -68,12 +60,16 @@ else{
 
 
   // *OK*
-  //adds new task to the list of ongoing tasks
-  // työntää uuden olion tasks-taulukkoon
-  handleNewTask(olio) {
-    console.log("App -- handling new task:" + olio.note);
+
+  handleTaskSubmit(olio) {
+
     let storedData = this.state.tasks.slice();
-    storedData.push(olio);
+    const index = storedData.findIndex(item => item.id === olio.id);
+
+    if (index >= 0) {
+      storedData[index] = olio
+    } else { storedData.push(olio) }
+
     this.setState({ tasks: storedData });
   }
 
@@ -81,17 +77,18 @@ else{
   // *OK*
   // moves the task to the diary when it's modified to be done
   // siirtää tehdyn olion päiväkirjaan ja poistaa tehtävälistasta
-  handleTaskDone(olio) {
-    console.log("App--done!");
-    let done = this.state.done.slice();
-    let tasks = this.state.tasks.slice();
-    for (let i = 0; i < tasks.length; i++) {
-      if (olio.id === tasks[i].id) {
-        done.push(olio)
-      }
-    }
-    this.setState({ done });
-  }
+
+  // handleTaskDone(olio) {
+  //   console.log("App--done!");
+  //   let done = this.state.done.slice();
+  //   let tasks = this.state.tasks.slice();
+  //   for (let i = 0; i < tasks.length; i++) {
+  //     if (olio.id === tasks[i].id) {
+  //       done.push(olio)
+  //     }
+  //   }
+  //   this.setState({ done });
+  // }
 
 
   // *OK*
@@ -103,23 +100,8 @@ else{
   }
 
 
-  // TÄMÄN VOISI JÄRKEISTÄÄ REACT URL-TOIMINNOLLA
-  handleModifyTask(modified) {
-    let tasks = this.state.tasks.slice();
-    tasks = this.state.tasks.filter(task => task.id !== modified.id);
-    tasks.push(modified);
-    console.log("App--modify task:" + modified.id);
-    this.setState({ tasks, modify: modified });
-  }
-  chooseModified(modify) {
-    this.setState({ modify });
-  }
 
-  //TÄMÄ EI TOIMI, YRITYS SAADA NOTIFICATION TOTAL MYÖHÄSSÄ OLEVISTA
-  lateLength(length) {
-    console.log("kutsu" + length);
-    this.setState({ length });
-  }
+
 
 
 
@@ -130,31 +112,27 @@ else{
           <Header />
           <div className="App__content">
 
-            <Route path="/" exact render={() =>
-              <Garden
-                kasvit={this.state.kasvit}
-                onNewPlant={this.handleNewPlant} />} />
+            <Route path="/" exact render={() => <Garden
+              kasvit={this.state.kasvit}
+              onNewPlant={this.handleNewPlant} />} />
 
             <Route path="/weather" exact component={Weather} />
-            <Route path="/chores" exact render={() =>
-              <Calendar
-                chooseModified={this.chooseModified}
-                late={this.lateLength}
-                onTaskDone={this.handleTaskDone}
-                tasks={this.state.tasks} />}
-            />
-            <Route path="/taskform" exact render={() =>
-              <TaskForm onNewTask={this.handleNewTask} />} />
+            <Route path="/chores" exact render={() => <Calendar
+              tasks={this.state.tasks} />} />
 
-            <Route path="/diary" exact render={() =>
-              <Diary diary={this.state.done} />} />
-            <Route path="/edittask" render={() =>
-              <EditTask
-                modify={this.state.modify}
+            <Route path="/newtask" exact render={() => <NewTask
+              onSubmit={this.handleTaskSubmit} />} />
 
-                onModifyTask={this.handleModifyTask}
-                onTaskDone={this.handleTaskDone}
-                onDelete={this.handleTaskDelete} />} />
+
+            <Route path="/diary" exact render={() => <Diary
+              diary={this.state.done} />} />
+
+            <Route path="/edittask/:id" render={(props) => <EditTask
+              onSubmit={this.handleTaskSubmit}
+              data={this.state.tasks}
+              // onTaskDone={this.handleTaskDone}
+              onDelete={this.handleTaskDelete}
+              {...props} />} />
           </div>
           <Menu late={this.state.length} />
         </div>

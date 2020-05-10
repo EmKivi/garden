@@ -14,7 +14,7 @@ console.log("Calendar--rendered")
         <div className="calendar">
             <div className="calendar__head">
                 <h2>Tehtävälista</h2>
-                <Link to="/taskform">
+                <Link to="/newtask">
                     <AddCircleIcon className="calendar__add" style={{ fontSize: 50 }} /></Link>
             </div>
 
