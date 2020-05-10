@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../TaskFilter/TaskFilter.css';
+import '../Organizer/TaskFilter.css';
 import moment from 'moment';
 import ArrowRight from '@material-ui/icons/ArrowRight';
 

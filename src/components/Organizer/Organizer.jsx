@@ -1,12 +1,13 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import './TaskFilter.css';
+import './Organizer.css';
 import TaskCreator from '../TaskCreator/TaskCreator';
 import moment from 'moment';
 
 
 
-const TaskFilter = (props) => {
+//SORTS TASKS TO 3 LIST BASED ON DATE
+const Organizer = (props) => {
 
 
 
@@ -62,4 +63,4 @@ const TaskFilter = (props) => {
 
 
 
-export default TaskFilter;
+export default Organizer;
