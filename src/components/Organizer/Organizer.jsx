@@ -10,28 +10,28 @@ import moment from 'moment';
 const Organizer = (props) => {
 
     let today = [];
-    let late = [];
+    let overdue = [];
     let upcoming = [];
-    let row = props.tasks;
+    let tasks = props.tasks;
     let now = moment();
     let due;
-    row.sort((a, b) => moment(a.date) - moment(b.date));
+    tasks.sort((a, b) => moment(a.date) - moment(b.date));
 
 
-    for (let i = 0; i < row.length; i++) {
-        due = moment(row[i].date);
-        if (due.month() + due.date() + due.year() === now.month() + now.date() + now.year()) {
-            today.push(row[i]);
+    for (let i = 0; i < tasks.length; i++) {
+        due = moment(tasks[i].date);
+  
+        if (due.isSame(now, "day")) {
+          today.push(tasks[i]);
+          console.log(tasks[i].date + "tänään");
         }
-        else if (due > now) {
-            upcoming.push(row[i]);
+        else if (tasks[i].late) {
+          overdue.push(tasks[i])
         }
-        else {
-            late.push(row[i]);
-        }
-    }
 
-    
+        else{upcoming.push(tasks[i])}
+      }
+
 
     return (
        
@@ -39,7 +39,7 @@ const Organizer = (props) => {
 
             <div className="taskfilter__late">
                 <h3>Myöhässä</h3>
-                <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={late} />
+                <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={overdue} />
             </div>
 
             <div className="taskfilter__today">

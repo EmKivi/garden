@@ -10,7 +10,7 @@ const EditTask = (props) => {
 
     return (
   
-        <TaskForm data={itemData} onSubmit={props.onSubmit} onDelete={props.onDelete} />
+        <TaskForm data={itemData} onSubmit={props.onSubmit} onDelete={props.onDelete} onDone={props.onDone}/>
     );
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Diary.css';
 import moment from 'moment';
-
+import { v4 as uuidv4 } from 'uuid';
 
 const Diary = (props) => {
     return (
@@ -24,7 +24,7 @@ const Notes = (props) => {
     let markings = props.diary.slice().map((mark, index) => {
 
         return (
-            <div className="note" key="index">
+            <div className="note" key={uuidv4()}>
                 <h4>{moment(mark.date).format('D.M.Y').toString()}</h4>
                 <hr />
                 <p>{mark.note}</p>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import testdata from './testdata.js';
 import './App.css';
-
+import moment from 'moment';
 
 import Header from './components/Header/Header';
 import Garden from './components/Garden/Garden';
@@ -13,24 +13,46 @@ import EditTask from './components/EditTask/EditTask';
 import Diary from './components/Diary/Diary';
 import Menu from './components/Menu/Menu';
 
+
 class App extends Component {
 
   constructor(props) {
     super(props);
 
-    this.state = {
+    let tasks = testdata.tasks;
+    let notifier = 0;
 
-      tasks: testdata.tasks,
+    // leimataan myöhässä olevat late=true  arvolla
+    let now = moment();
+    let due;
+    for (let i = 0; i < tasks.length; i++) {
+      due = moment(tasks[i].date);
+
+      if (due.isSame(now, "day")) {
+        // today.push(tasks[i]);
+        console.log(tasks[i].date + "tänään");
+      }
+      else if (due.isBefore()) {
+        tasks[i].late = true;
+        notifier++;
+      }
+    }
+
+
+    console.log(notifier);
+
+
+    this.state = {
+      tasks: tasks,
       kasvit: testdata.kasvit,
       done: testdata.diary,
-      key: 0
+      notifier: notifier
 
     };
     this.handleNewPlant = this.handleNewPlant.bind(this);
     this.handleTaskSubmit = this.handleTaskSubmit.bind(this);
     this.handleTaskDelete = this.handleTaskDelete.bind(this);
-    // this.notificationCount = this.notificationCount.bind(this);
-    // this.handleTaskDone = this.handleTaskDone.bind(this);
+    this.handleTaskDone = this.handleTaskDone.bind(this);
 
   }
 
@@ -70,7 +92,7 @@ class App extends Component {
     if (index >= 0) {
       storedData[index] = olio
     } else { storedData.push(olio) }
-    this.setState({ tasks: storedData, key: Math.random });
+    this.setState({ tasks: storedData });
   }
 
 
@@ -78,63 +100,31 @@ class App extends Component {
   // moves the task to the diary when it's modified to be done
   // siirtää tehdyn olion päiväkirjaan ja poistaa tehtävälistasta
 
-  // handleTaskDone(olio) {
-  //   console.log("App--done!");
-  //   let done = this.state.done.slice();
-  //   let tasks = this.state.tasks.slice();
-  //   for (let i = 0; i < tasks.length; i++) {
-  //     if (olio.id === tasks[i].id) {
-  //       done.push(olio)
-  //     }
-  //   }
-  //   this.setState({ done });
-  // }
+  handleTaskDone(item) {
+    console.log("App--done!");
+    let done = this.state.done.slice();
+    let log = this.state.tasks.find(task => task.id === item.id);
+    done.push(log);
+
+    this.handleTaskDelete(item);
+    this.setState({ done });
+  }
 
 
   // ***OK***
   //deletes task
-  handleTaskDelete(id) {
+  handleTaskDelete(item) {
     console.log("App--poisto");
-    let tasks = this.state.tasks.filter(task => task.id !== id);
+    let tasks = this.state.tasks.filter(task => task.id !== item.id);
+    let notifier = this.state.notifier;
+    if (item.late) {
+      notifier--;
+    }
 
-    this.setState({ tasks, key: Math.random });
+    this.setState({ tasks, notifier });
   }
 
 
-  // notificationCount() {
-  // let row = this.state.tasks.slice();
-  // let now = moment();
-  // let due;
-  // let count = 1;
-
-  // for (let i = 0; i < row.length; i++) {
-  //   due = moment(row[i].date);
-  //   if (due.month() + due.date() + due.year() < now.month() + now.date() + now.year()) {
-  //     count++;
-  //   }
-  // }
-  // this.setState({ lateCount: count});
-  // }
-
-
-  // let due;
-
-  // for (let i = 0; i < row.length; i++) {
-  //     due = moment(row[i].date);
-  //     if (due.month() + due.date() + due.year() === now.month() + now.date() + now.year()) {
-  //         today.push(row[i]);
-  //     }
-  //     else if (due > now) {
-  //         upcoming.push(row[i]);
-  //     }
-  //     else {
-  //         late.push(row[i]);
-  //     }
-  // }
-
-  // componentDidMount() {
-  //   this.notificationCount();
-  // }
 
   render() {
     return (
@@ -160,13 +150,14 @@ class App extends Component {
               data={this.state.tasks}
               // onTaskDone={this.handleTaskDone}
               onDelete={this.handleTaskDelete}
+              onDone={this.handleTaskDone}
               {...props} />} />
 
             <Route path="/diary" exact render={() => <Diary
               diary={this.state.done} />} />
 
           </div>
-          <Menu key={this.state.key} data={this.state.tasks} />
+          <Menu count={this.state.notifier} />
         </div>
       </Router >
     );

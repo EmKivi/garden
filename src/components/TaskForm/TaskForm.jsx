@@ -18,6 +18,7 @@ class TaskForm extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleReturn = this.handleReturn.bind(this);
+        this.handleDone = this.handleDone.bind(this);
 
     }
 
@@ -51,9 +52,16 @@ class TaskForm extends Component {
     }
     handleDelete() {
 
-        this.props.onDelete(this.state.data.id);
+        this.props.onDelete(this.state.data);
         this.props.history.push("/chores");
     }
+
+    handleDone() {
+        this.props.onDone(this.state.data);
+        this.props.history.push("/diary");
+
+    }
+
     render() {
         return (
             <form className="taskform">
@@ -68,6 +76,7 @@ class TaskForm extends Component {
 
 
                     {this.props.onDelete ? <button onClick={this.handleDelete}>poista</button> : ""}
+                    {this.props.onDone ? <button onClick={this.handleDone}>kirjaa</button> : ""}
                 </div>
             </form>);
     }

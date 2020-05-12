@@ -92,7 +92,7 @@ const testdata = {
             note: "kitkeminen"
         },
         {
-            id: "6", date: "2020-04-13",
+            id: "6", date: "2020-05-12",
             note: "karsiminen"
         },
         {
