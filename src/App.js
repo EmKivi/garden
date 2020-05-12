@@ -7,11 +7,11 @@ import moment from 'moment';
 import Header from './components/Header/Header';
 import Garden from './components/Garden/Garden';
 import Weather from './components/Weather/Weather';
-import Calendar from './components/Calendar/Calendar';
 import NewTask from './components/NewTask/NewTask';
 import EditTask from './components/EditTask/EditTask';
 import Diary from './components/Diary/Diary';
 import Menu from './components/Menu/Menu';
+import Organizer from './components/Organizer/Organizer';
 
 
 class App extends Component {
@@ -139,7 +139,7 @@ class App extends Component {
 
             <Route path="/weather" exact component={Weather} />
 
-            <Route path="/chores" exact render={() => <Calendar
+            <Route path="/chores" exact render={() => <Organizer
               tasks={this.state.tasks} />} />
 
             <Route path="/newtask" exact render={() => <NewTask
