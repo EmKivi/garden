@@ -2,21 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import './Task.css';
-import ArrowRight from '@material-ui/icons/ArrowRight';
+import Edit from '@material-ui/icons/Edit';
 
 const Task = props => {
     return (
-        <div className="tasklister">
+        <div className="task">
+           
             <li key={props.task.id}>
-                <div className="tasklister__row">
+                <div className="task__row">
                     <div>{moment(props.task.date).format('D.M.Y').toString()}</div>
-                    <div className="tasklister__icon">
-                        <Link to={"/edittask/" + props.task.id}><ArrowRight style={{ fontSize: 36 }} /></Link>
-                    </div>
+                    <br />
+                    <p>{props.task.note}</p>
+
                 </div>
             </li>
-            <div><p>{props.task.note}</p></div>
-            <br />
+            
+            <div className="task__icon">
+                <Link to={"/edittask/" + props.task.id}><Edit style={{ fontSize: 42 }} /></Link>
+            </div>
         </div >
     );
 }

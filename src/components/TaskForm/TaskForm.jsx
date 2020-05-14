@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './TaskForm.css';
 import { v4 as uuidv4 } from 'uuid';
 import { withRouter } from "react-router";
-
+import Button from '../buttons';
+import { Delete } from '@material-ui/icons';
+import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
 
 class TaskForm extends Component {
     constructor(props) {
@@ -69,16 +71,15 @@ class TaskForm extends Component {
 
                 <textarea name="note" value={this.state.data.note} onChange={this.handleInputChange} />
                 <input name="date" value={this.state.data.date} onChange={this.handleInputChange} type="date" />
-                <div>
-                    <button onClick={this.handleReturn}>palaa</button>
 
-                    <button onClick={this.handleSubmit}>{this.state.data.id ? "TALLENNA" : "LISÄÄ"}</button>
+                <Button primary onClick={this.handleSubmit}>{this.state.data.id ? "TALLENNA" : "LISÄÄ"}</Button>
+                {this.props.onDone ? <Button secondary onClick={this.handleDone}>KIRJAA</Button> : ""}
 
-
-                    {this.props.onDelete ? <button onClick={this.handleDelete}>poista</button> : ""}
-                    {this.props.onDone ? <button onClick={this.handleDone}>kirjaa</button> : ""}
+                <div className="taskform__buttons">
+                    <ArrowBackIosRoundedIcon onClick={this.handleReturn} />
+                    {this.props.onDelete ? <Delete onClick={this.handleDelete} /> : ""}
                 </div>
-            </form>);
+            </form >);
     }
 }
 

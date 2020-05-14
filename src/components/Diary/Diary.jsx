@@ -1,25 +1,9 @@
 import React from 'react';
-// import './Diary.css';
+import './Diary.css';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
 
 const Diary = (props) => {
-    return (
-
-        <div className="diary__bg">
-          
-            <h3>Kirjaukset päiväkirjaan:</h3>
-            <div className="diary">
-
-                <Notes diary={props.diary} />
-            </div>
-        </div>
-    );
-}
-
-
-const Notes = (props) => {
-
 
     let markings = props.diary.slice().map((mark, index) => {
 
@@ -33,8 +17,11 @@ const Notes = (props) => {
     });
 
     return (
-        <div>
-            <ul>{markings}</ul>
+        <div className="diary">
+            <h3>Kirjaukset päiväkirjaan:</h3>
+            <div className="diary__content">
+                <ul>{markings}</ul>
+            </div>
         </div>
     );
 }

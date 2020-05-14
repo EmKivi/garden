@@ -1,29 +1,28 @@
-.diary__bg {
- 
-    /* background-color: #417067; */
- 
+.diary {
+
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
-    height: 100%;
-    background-image: linear-gradient(to bottom right, rgba(61, 110, 167, 0.9), rgb(3, 59, 38));
+    /* background-color: #417067; */
+    max-height: 100%;
+    min-height: 100%;
+
 
     
 }
 
 
-.diary{
+.diary__content{
     height: 100%;
     opacity: 0.7; 
-    background-image: url('./diary_frame_2.png');
-    background-repeat: no-repeat;
-    background-size: 100%;
-    
+        background-color: #417067;
+ 
+ 
 }
-.diary h4 {
-    color: rgb(247, 230, 103);
-   
+.diary h3 {
+    color:black;
+   position: sticky;
+          background-color:
     /* text-shadow: 2px -3px 6px rgba(0,0,0,0.7), 0px -5px 35px rgba(255,255,255,0.3); */
 
 }
