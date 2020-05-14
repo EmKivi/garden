@@ -18,7 +18,7 @@ const Diary = (props) => {
 
     return (
         <div className="diary">
-            <h3>Kirjaukset päiväkirjaan:</h3>
+            {/* <h3>Päiväkirja</h3> */}
             <div className="diary__content">
                 <ul>{markings}</ul>
             </div>

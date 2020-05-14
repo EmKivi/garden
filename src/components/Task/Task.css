@@ -1,12 +1,16 @@
 .task{
     display: flex;
     padding: 0.5em 0.5em 0.5em 0em;
-   
- 
 }
 
 .task > *{
     flex: 1 1 auto;
+}
+
+.task__hr{
+    border: 0;
+    border-bottom: 2px dashed #ccc;
+    background: #999;
 }
 
 .task__row{
@@ -24,7 +28,7 @@
 }
 .task__icon a{
     display: none;
-    color:  white;    
+    color:  black;    
 }
 
 .task li{
@@ -32,10 +36,10 @@
 }
 
 .task:hover {
-   
+    background-color: pink;
+
 }
 
 .task:hover .task__icon a{
     display: flex;
-    background-color: pink;
 }
