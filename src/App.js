@@ -148,7 +148,6 @@ class App extends Component {
             <Route path="/edittask/:id" render={(props) => <EditTask
               onSubmit={this.handleTaskSubmit}
               data={this.state.tasks}
-              // onTaskDone={this.handleTaskDone}
               onDelete={this.handleTaskDelete}
               onDone={this.handleTaskDone}
               {...props} />} />

@@ -1,0 +1,27 @@
+.organizer {
+  
+}
+
+.organizer__header{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1em;
+}
+
+.organizer__header > *{
+    padding: 1em;
+}
+
+.organizer__section{
+   
+    padding: 1em;
+    margin: 2em;
+}
+
+.organizer__section h3{
+ 
+}
+
+
+/* aaltosulut: shift+alt+8{}
+kommentointi cmd+shift+7 */

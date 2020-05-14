@@ -1,0 +1,27 @@
+.tasklister{
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 0.5em 0.5em 0em;
+   
+}
+
+.tasklister__row{
+    display: flex;
+    padding: 0.3em;
+    background-color: purple;
+    
+}
+.tasklister__icon a{
+    display: flex;
+    color: black;
+    size: 2em;
+    
+}
+
+.tasklister li{
+    list-style-type: none;
+}
+
+.tasklister:hover {
+    background-color: pink;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Diary.css';
+// import './Diary.css';
 import moment from 'moment';
 import { v4 as uuidv4 } from 'uuid';
 
