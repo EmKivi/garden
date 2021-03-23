@@ -1,5 +1,7 @@
 .organizer {
-  
+  background-color: rgb(135, 156, 218);
+  color: rgb(9, 9, 63);
+  font-weight: bold;
 }
 
 .organizer__header{
@@ -19,8 +21,12 @@
 }
 
 .organizer__section h3{
- 
+ color: white;
+ font-size: 32;
 }
+
+
+
 
 
 /* aaltosulut: shift+alt+8{}

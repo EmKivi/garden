@@ -7,9 +7,9 @@
     background-color: #CCC;
     color:  #000;
     border: none;
-    padding: 0.7em;
+    padding: 1em;
     outline: none;
-    margin: 0.5em;
+    margin: 1em;
     border-radius: 0.2em;
     /* väri, horisontal, vertical, blur */
     box-shadow: rgba(0,0,0,0.5) 0px 2px 2px; 
@@ -19,6 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 6em;
     opacity: 0.8;
 }
 
@@ -39,8 +40,9 @@
 }
 
 .button--primary {
-    background-color: #0285ee;
+    /* background-color: rgb(177, 129, 137); */
     color: #fff;
+    background-color: rosybrown;
 }
 
 .button--primary:active{

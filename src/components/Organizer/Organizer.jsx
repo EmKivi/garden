@@ -22,35 +22,39 @@ const Organizer = (props) => {
         due = moment(tasks[i].date);
         if (due.isSame(now, "day")) {
             today.push(tasks[i]);
-            console.log(tasks[i].date + "tänään");}
+            console.log(tasks[i].date + "tänään");
+        }
         else if (tasks[i].late) {
-            overdue.push(tasks[i])}
+            overdue.push(tasks[i])
+        }
         else { upcoming.push(tasks[i]) }
     }
 
 
     return (
         <div className="organizer">
-                <div className="organizer__header">
-                    <h2>Tehtävälista</h2>
-                    <Link to="/newtask">
-                        <AddCircleIcon className="calendar__add" style={{ fontSize: 50 }} /></Link>
-                </div>
-                <hr />
+            <div className="organizer__header">
+                <h2>Tehtävälista</h2>
+                <Link to="/newtask">
+                    <AddCircleIcon className="calendar__add" style={{ fontSize: 50 }} /></Link>
+            </div>
+            <hr />
+            <div className="organizer__late">
                 <div className="organizer__section">
-                    <h3>Myöhässä</h3>
-                    <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={overdue} />
+                    <h3 style={{textShadow: "2px 2px 6px red"}}>Myöhässä</h3>
+                    <TaskLister  modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={overdue} />
                 </div>
-                <hr />
-                <div className="organizer__section">
-                    <h3>Tänään</h3>
-                    <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={today} />
-                </div>
-                <hr />
-                <div className="organizer__section">
-                    <h3>Tulossa</h3>
-                    <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={upcoming} />
-                </div>
+            </div>
+            <hr />
+            <div className="organizer__section">
+                <h3 >Tänään</h3>
+                <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={today} />
+            </div>
+            <hr />
+            <div className="organizer__section">
+                <h3 style={{textShadow: "2px 2px 2px  #17CE1C"}}>Tulossa</h3>
+                <TaskLister modified={props.modified} onTaskDone={props.onTaskDone} delete={props.onDelete} list={upcoming} />
+            </div>
         </div >)
 }
 

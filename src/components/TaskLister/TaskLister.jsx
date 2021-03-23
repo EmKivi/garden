@@ -12,7 +12,7 @@ const TaskLister = (props) => {
 
     let rows = props.list.map(
         (task) => {
-            return (<Task modified={props.modified} task={task} done={handleDone} key={task.id} />)
+            return (<Task color={props.color} modified={props.modified} task={task} done={handleDone} key={task.id} />)
         });
 
 

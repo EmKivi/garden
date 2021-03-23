@@ -8,7 +8,6 @@ const Task = props => {
     return (
         <>
             <div className="task">
-
                 <li key={props.task.id}>
                     <div className="task__row">
                         <div>{moment(props.task.date).format('D.M.Y').toString()}</div>
@@ -21,7 +20,7 @@ const Task = props => {
                     <Link to={"/edittask/" + props.task.id}><Edit style={{ fontSize: 42 }} /></Link>
                 </div>
             </div >
-            <hr className="task__hr" />
+            <hr className="task__hr" />
         </>
     );
 }

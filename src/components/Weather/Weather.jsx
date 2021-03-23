@@ -3,7 +3,7 @@ import './Weather.css';
 
 import moment from 'moment';
 
-
+// https://ecomaan.nl/javascript/moonphase/ 
 
 //API KEY GIT IGNORE FILE
 
@@ -16,29 +16,29 @@ export default class Weather extends Component {
 
   };
 
-  // componentDidMount() {
-  //   fetch(
-  //     "http://api.weatherstack.com/current?access_key=d62d6cc74e39926236cbd4eae59814cf&query=Laitila"
-  //   )
-  //     .then(res => res.json())
-  //     .then(
-  //       res => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           data: res
-  //         });
-  //       },
-  //       // Note: it's important to handle errors here
-  //       // instead of a catch() block so that we don't swallow
-  //       // exceptions from actual bugs in components.
-  //       error => {
-  //         this.setState({
-  //           isLoaded: true,
-  //           error
-  //         });
-  //       }
-  //     );
-  // }
+  componentDidMount() {
+    fetch(
+      "http://api.weatherstack.com/current?access_key=d62d6cc74e39926236cbd4eae59814cf&query=Laitila"
+    )
+      .then(res => res.json())
+      .then(
+        res => {
+          this.setState({
+            isLoaded: true,
+            data: res
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        error => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
+  }
 
   render() {
     const { error, isLoaded } = this.state;

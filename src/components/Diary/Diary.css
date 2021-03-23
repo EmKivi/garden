@@ -1,14 +1,18 @@
 
-.diary__content{
-    height: 100%;
-    opacity: 0.7; 
+.diary{
+ 
     max-height: 100%;
     min-height: 100%;
 
 }
 
+.diary__content{
+    /* opacity: 0.7;  */
+
+}
+
 .diary hr{
-    opacity: 0.3;
+    opacity: 0.5;
     
     
 }
@@ -22,6 +26,7 @@
 
 .note{
     padding: 1.5em 2em;  
-      
+    /* background-color: rgb(237, 204, 240); */
+
 }
 

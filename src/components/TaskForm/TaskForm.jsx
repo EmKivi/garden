@@ -67,17 +67,18 @@ class TaskForm extends Component {
     render() {
         return (
             <form className="taskform">
-                {this.state.data.id ? <h3>Muokkaa tehtävää</h3> : <h3>Luo uusi tehtävä</h3>}
+                {/* {this.state.data.id ? <h3>Muokkaa tehtävää</h3> : <h3>Luo uusi tehtävä</h3>} */}
 
-                <textarea name="note" value={this.state.data.note} onChange={this.handleInputChange} />
+                <textarea rows="10" name="note" value={this.state.data.note} onChange={this.handleInputChange} />
                 <input name="date" value={this.state.data.date} onChange={this.handleInputChange} type="date" />
+                <div className="taskform__buttons">
+                    <Button primary onClick={this.handleSubmit}>{this.state.data.id ? "TALLENNA" : "LISÄÄ"}</Button>
+                    <Button secondary onClick={this.handleDone}>KIRJAA</Button>
+                    {this.props.onDelete ? <Button  onClick={this.handleDelete}>POISTA</Button> : ""}
 
-                <Button primary onClick={this.handleSubmit}>{this.state.data.id ? "TALLENNA" : "LISÄÄ"}</Button>
-                {this.props.onDone ? <Button secondary onClick={this.handleDone}>KIRJAA</Button> : ""}
-
+                </div>
                 <div className="taskform__buttons">
                     <ArrowBackIosRoundedIcon onClick={this.handleReturn} />
-                    {this.props.onDelete ? <Delete onClick={this.handleDelete} /> : ""}
                 </div>
             </form >);
     }
