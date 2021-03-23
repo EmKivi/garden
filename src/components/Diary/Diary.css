@@ -1,24 +1,17 @@
 
+/* stylesheet of the diary/journal were the user can
+mark down their notes or duties they have done */
+
 .diary{
- 
     max-height: 100%;
     min-height: 100%;
-
+    background-color: rgb(220,220,220);
 }
 
-.diary__content{
-    /* opacity: 0.7;  */
-
-}
 
 .diary hr{
     opacity: 0.5;
-    
-    
 }
-
-
-
 
 .diary p{
     padding:0.5em;
@@ -26,7 +19,5 @@
 
 .note{
     padding: 1.5em 2em;  
-    /* background-color: rgb(237, 204, 240); */
-
 }
 

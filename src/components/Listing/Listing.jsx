@@ -1,7 +1,6 @@
 import React from 'react';
 
 
-//*OK*
 //listaa taulukosta kasvit
 
 

@@ -3,8 +3,8 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import './NewPlant.css';
 
 
-//*OK*
-// NewPlant -komponetti toimii
+
+
 //PITÄISI VOIDA LUODA UUSI LISTATYYPPI
 
 class NewPlant extends Component {

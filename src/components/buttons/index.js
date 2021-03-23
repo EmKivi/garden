@@ -4,10 +4,9 @@ import './buttons.css';
 const classNames = className => className.join(" ");
 
 
-
-
-// ...   pilkkoo propsin sisällön ja luo uuden js muuttujan
+// note to self: kolme pistettä  pilkkoo propsin sisällön ja luo uuden js muuttujan
 // ... ottaa kaikki muut kuin className  eli ...rest
+
 const Button = ({ className = "", primary, secondary, ...props }) => {
 
     return (
@@ -30,8 +29,6 @@ const FloatingButton = ({className= "", ...props}) => {
         className= {classNames(["button--floating", className])} {...props} />
     );
 }
-
-
 
 
 export { Button as default, Button, FloatingButton };
