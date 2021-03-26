@@ -1,7 +1,7 @@
 .garden {
   display: flex;
-  background-color: #053241;
   flex-direction: column;
+  background-color: #053241;
   color:#053747;
   min-height: 100%;
   /* background-image: url('./garden.png'); */
@@ -20,26 +20,18 @@
 .garden__section {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   padding: 0.2em;
-
 }
 
-.garden__kasvit{
-
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
-  width: 30%;
+.garden__kasvit {
+  flex: 1 1 100px;
   margin: 0.1em;
   background-color: rgba(14, 95, 95, 0.8);
-  /* background-color: rgba(86, 114, 31, 0.8); */
   box-shadow:2px 2px 10px rgba(0,0,0,0.3);
   border-radius: 5%;
   color: white;
-  /* border: 2px solid rgba(0,0,0,0.2); */
   padding: 0.5em;
-  
-  
 }
 
 .garden__add{
@@ -47,7 +39,6 @@
   justify-content: space-evenly;
   margin: 0.5em;
 }
-
 
 ::-webkit-scrollbar{
   width: 0.5em;

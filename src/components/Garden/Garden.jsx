@@ -12,6 +12,7 @@ import NewPlant from '../NewPlant/NewPlant';
 
 const Garden = (props) => {
     console.log("Garden--rendered");
+
     return (
         <div className="garden" >
 
@@ -19,31 +20,14 @@ const Garden = (props) => {
             <NewPlant onNewPlant={props.onNewPlant} />
 
             <div className="garden__section">
-                <div className="garden__kasvit">
-                    <Listing props={props.kasvit[0]} />
-                </div>
-                <div className="garden__kasvit">
-                    <Listing props={props.kasvit[1]} />
-                </div>
-                <div className="garden__kasvit">
-                    <Listing props={props.kasvit[2]} />
-                </div>
-            </div>
-            <div className="garden__section">
-                <div className="garden__kasvit">
-                    <Listing props={props.kasvit[3]} />
-                </div>
-                <div className="garden__kasvit">
-                    <Listing props={props.kasvit[4]} />
-                </div>
-                <div className="garden__kasvit">
-                    <Listing props={props.kasvit[5]} />
-                </div>
-            </div>
-            <div className="garden__section">
-                <div className="garden__kasvit">
-                    <Listing props={props.kasvit[6]} />
-                </div>
+                {props.kasvit.map((item, index) =>(
+                    <div key={index} className="garden__kasvit">
+                    <h3>{item.tyyppi}</h3>
+                    <ul>{item.lista.map((name, index) => (
+                        <li key={index}>{name}</li>))}
+                    </ul>
+                  </div>
+                ))}
             </div>
         </div >
     );
